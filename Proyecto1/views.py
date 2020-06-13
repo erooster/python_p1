@@ -2,9 +2,20 @@ from django.http import HttpResponse
 import datetime
 from django.template import Template, Context
 
+class Persona(object):
+    def __init__(self, nombre, apellido):
+        self.nombre=nombre
+        self.apellido=apellido
 
 def saludo(request):
 
+    p1=Persona("Emilio", "Rooster")
+
+    # nombre="Juan"
+    # apellido="Diáz"
+    ahora=datetime.datetime.now()
+    temasDelCurso=["Plantillas","Modelos","Formularios","Vistas","Despliegue"]
+    # temasDelCurso=[]
     doc_externo=open("/home/shdaemon/Desktop/Deskontop/django/Proyecto1/Proyecto1/views/saludo.html")
     #Plantilla
     plt=Template(doc_externo.read())
@@ -12,7 +23,8 @@ def saludo(request):
     doc_externo.close()
 
     #Contexto vacio
-    ctx=Context()
+    # ctx=Context({"nombre_persona":nombre,"apellido_persona":"Diáz","momento_actual":ahora})
+    ctx=Context({"nombre_persona":p1.nombre,"apellido_persona":p1.apellido,"momento_actual":ahora,"temas":temasDelCurso})
     #renderizar documento
     documento=plt.render(ctx)
 

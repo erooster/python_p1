@@ -1,0 +1,44 @@
+<html>
+    <body>
+        {% include "barras/superior.html" %}   
+    
+        <h2 style="color: green">Hi mate, this is my first page with Django using a template</h2>
+    </body>
+
+    {% comment %} 
+        Codigo,
+        Este es un ejemplo de comentario en varias  lineas
+    {% endcomment %}
+    {% if nombre_persona == 'Juan' %}
+
+    <p>El curso lo imparte el profesor titular</p>
+
+    {% else %}
+
+    <p>El curso lo imparte el profesor sumplente</p>
+
+    {% endif %}
+    {# Fin de  Codigo #}
+
+    <p>Teacher Name: {{nombre_persona.upper}} {{apellido_persona|lower}}</p>
+    <p>Current day: {{momento_actual.year}} / {{momento_actual.month}} / {{momento_actual.day}} </p>
+    
+    <p><strong>Temas del curso </strong></p>
+    <p> 
+        <ul>
+        {% if  temas %}
+
+            {% for elTema in temas %}
+                {% comment %} Se utiliza filtros con | y se pueden realizar
+                multiples filtros {% endcomment %}
+                <li>{{elTema|first|lower}}</li>
+            
+            {% endfor %}
+            
+        {% else %}
+            <p>No hay elementos que mostrar</p>
+        {% endif %}
+        </ul>
+    </p>
+
+</html>

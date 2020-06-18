@@ -1,6 +1,6 @@
 <html>
     <body>
-        {% include "barras/superior.html" %}   
+        {% comment %} {% include "barras/superior.html" %}    {% endcomment %}
     
         <h2 style="color: green">Hi mate, this is my first page with Django using a template</h2>
     </body>
@@ -11,11 +11,11 @@
     {% endcomment %}
     {% if nombre_persona == 'Juan' %}
 
-    <p>El curso lo imparte el profesor titular</p>
+        <p>El curso lo imparte el profesor titular</p>
 
     {% else %}
 
-    <p>El curso lo imparte el profesor sumplente</p>
+        <p>El curso lo imparte el profesor sumplente</p>
 
     {% endif %}
     {# Fin de  Codigo #}

@@ -1,0 +1,28 @@
+<html>
+
+<head>
+    <title>
+
+        {% block title %} {% endblock title %}
+
+    </title>
+</head>
+
+<body>
+    
+    <h1 style="background-color: darkgreen; color: white; text-align: center;">Rooster page</h1>
+    
+    {% include "barras/superior.html" %} 
+    
+    <h3 style="text-align: right;">News</h3>
+
+    {% block content %}
+
+    {% endblock content%}
+
+    <p style="background-color: darkgreen; color: white; text-align: left;"> Gracias por su visita. </p>
+
+</body>
+
+
+</html>

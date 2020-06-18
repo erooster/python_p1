@@ -3,10 +3,25 @@ import datetime
 from django.template import Template, Context
 from django.template.loader import get_template
 from django.shortcuts import render
+
+
+
+
 class Persona(object):
     def __init__(self, nombre, apellido):
         self.nombre=nombre
         self.apellido=apellido
+
+def medios(request):
+    fecha_actual=datetime.datetime.now()
+
+    return  render(request, 'politics.html',{"currentDate":fecha_actual})
+
+def music(request):
+    fecha_actual=datetime.datetime.now()
+
+    return  render(request, 'music.html',{"currentDate":fecha_actual})
+
 
 # Cargar plantillas con cargador importandolo : from django.template import loader
 def saludo(request):
@@ -53,7 +68,6 @@ def saludo(request):
 #     documento="<html><body><h1>Hi mate, this is my first page with Django</h1></body></html>"
 
 #     return HttpResponse(documento)
-
 
 def despedida(request):  #Primera Vista / Devuelve una respuesta
     
